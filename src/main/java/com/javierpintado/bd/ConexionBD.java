@@ -14,9 +14,9 @@ import java.sql.Statement;
 public class ConexionBD implements MetodosBD {
 
 	
-	private final String url = "jdbc:mysql://172.22.0.225:3306/JSPproducts";
+	private final String url = "jdbc:mysql://localhost:3306/JSProducts";
 	private final String usuario = "root";
-	private final String key = "123";
+	private final String key = "root";
     
     
     public ConexionBD() {

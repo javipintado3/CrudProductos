@@ -1,5 +1,6 @@
 package com.javierpintado.controllerServlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,40 +23,38 @@ ConexionBD ctr = new ConexionBD();
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		  
 	    }
 	
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 try {
-				String nombre = request.getParameter("nombre");
-				String descripcion = request.getParameter("descripcion");
-				String peso = request.getParameter("peso");
-				String stock = request.getParameter("stock");
-				String id = request.getParameter("id");
-	      
-	           
-	         
-	            
-	           
-	        	Producto nuevoProducto = new Producto(Integer.parseInt(id), nombre, descripcion, Float.parseFloat(peso), Integer.parseInt(stock));
-	            
-	            
-	            
-	            boolean actualizado = ctr.updateProducto(nuevoProducto);
-	            if (!actualizado) {
-	              
-	                response.sendRedirect("JSP/error.jsp"); // Cambiar a tu página de error
-	                return;
-	            }
-	            
-	            response.sendRedirect("JSP/exito.jsp"); // Cambiar a tu página de éxito o listado
+		try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String nombre = request.getParameter("nombre");
+            String descripcion = request.getParameter("descripcion");
+            Float peso = Float.parseFloat(request.getParameter("peso"));
+            int stock = Integer.parseInt(request.getParameter("stock"));
+            Producto nuevoProducto;
 
-	        } catch (NumberFormatException e) {
-	          
-	            response.sendRedirect("JSP/error.jsp"); // Cambiar a tu página de error
-	        }
+            nuevoProducto = new Producto(id, nombre, descripcion, peso, stock);
+            System.out.println(nuevoProducto.toString());
+
+
+            boolean actualizado = ctr.updateProducto(nuevoProducto);
+           
+            if (!actualizado) {
+                response.sendRedirect("JSP/error.jsp");
+                return;
+            }
+
+            response.sendRedirect("JSP/exito.jsp"); 
+
+        } catch (NumberFormatException e) {
+            response.sendRedirect("JSP/error.jsp"); 
+        }
+	
+	
 	}
 
 }

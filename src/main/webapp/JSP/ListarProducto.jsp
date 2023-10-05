@@ -11,6 +11,13 @@
 <body>
 <h1>Listado de Productos:</h1>
 <table>
+	<thead>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Peso</th>
+            <th>Stock</th>
+        </thead>
 	<c:forEach var="producto" items="${PRODUCTOS}">
 		<tr>
 			<td>${producto.getId()}</td>
@@ -27,7 +34,6 @@
 			</td>
 			<td>
 			<form action="JSP/Update.jsp" method="post">
-			
 				<input type="hidden" value="${producto.getId()}" name="id">
 				<input type="submit" value="Actualizar">
 			</form>
