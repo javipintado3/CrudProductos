@@ -2,14 +2,15 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
   <servlet>
     <description></description>
-    <display-name>ListarProductoServlet</display-name>
-    <servlet-name>ListarProductoServlet</servlet-name>
-    <servlet-class>com.javierpintado.controllerServlet.ListarProductoServlet</servlet-class>
+    <display-name>ListarControllerServlet</display-name>
+    <servlet-name>ListarControllerServlet</servlet-name>
+    <servlet-class>com.javierpintado.controllerServlet.ListarControllerServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ListarProductoServlet</servlet-name>
-    <url-pattern>/ListarProductoServlet</url-pattern>
+    <servlet-name>ListarControllerServlet</servlet-name>
+    <url-pattern>/ListarControllerServlet</url-pattern>
   </servlet-mapping>
+  
   <display-name>CrudDeProducto</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -19,4 +20,25 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CreateControllerServlet</display-name>
+    <servlet-name>CreateControllerServlet</servlet-name>
+    <servlet-class>com.javierpintado.controllerServlet.CreateControllerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateControllerServlet</servlet-name>
+    <url-pattern>/CreateControllerServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>EliminarControllerServlet</display-name>
+    <servlet-name>EliminarControllerServlet</servlet-name>
+    <servlet-class>com.javierpintado.controllerServlet.EliminarControllerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarControllerServlet</servlet-name>
+    <url-pattern>/EliminarControllerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

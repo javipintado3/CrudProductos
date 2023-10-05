@@ -33,11 +33,11 @@ public class Producto {
 		this.nombre = nombre;
 	}
 
-	public String getDescripción() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripción(String descripción) {
+	public void setDescripcion(String descripción) {
 		this.descripcion = descripción;
 	}
 

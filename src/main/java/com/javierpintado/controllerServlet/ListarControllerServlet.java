@@ -13,29 +13,30 @@ import com.javierpintado.bd.ConexionBD;
 import com.javierpintado.model.Producto;
 
 
-public class ListarProductoServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	ConexionBD con = new ConexionBD();
 
-   
-    public ListarProductoServlet() {
+
+public class ListarControllerServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+   ConexionBD ctr = new ConexionBD();
+	
+    public ListarControllerServlet() {
         super();
+       
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		
-		System.out.println("ListarProducto.doGET");
-		
-		List<Producto> productos = con.readProcuto();
+		List<Producto> productos = ctr.readProcuto();
 		request.setAttribute("PRODUCTOS", productos);
 		
 	 RequestDispatcher dispatcher = request.getRequestDispatcher("JSP/ListarProducto.jsp");
-	 dispatcher.forward(request, response);	
+	 dispatcher.forward(request, response);
+		
+		
 	}
 
 	
-	
-
 }

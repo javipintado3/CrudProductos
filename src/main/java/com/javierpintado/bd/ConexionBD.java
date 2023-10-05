@@ -2,6 +2,7 @@ package com.javierpintado.bd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,8 +33,24 @@ public class ConexionBD implements MetodosBD {
 
 	@Override
 	public boolean createProducto(Producto producto) {
-		// TODO Auto-generated method stub
-		return false;
+		 
+		try (Connection connection = DriverManager.getConnection(url, usuario, key)) {
+		        
+	        	String sql = "INSERT INTO Producto (nombre, descripcion, peso, stock, id) VALUES (?, ?, ?, ?, ?)";
+	            
+	            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+	                statement.setString(1, producto.getNombre());
+	                statement.setString(2, producto.getDescripcion());
+	                statement.setFloat(3, producto.getPeso());
+	                statement.setInt(4, producto.getStock());
+	                statement.setInt(5, producto.getId());
+	                int rowsInserted = statement.executeUpdate();
+	                return rowsInserted > 0;
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
 	}
 
 

@@ -9,6 +9,6 @@
 <title></title>
 </head>
 <body>
-	<c:redirect url="ListarProductoServlet" />
+	<c:redirect url="ListarControllerServlet" />
 </body>
 </html>

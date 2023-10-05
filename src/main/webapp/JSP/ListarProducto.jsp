@@ -9,12 +9,25 @@
 <title>Listado de producto</title>
 </head>
 <body>
+<h1>Listado de Productos:</h1>
 <table>
 	<c:forEach var="producto" items="${PRODUCTOS}">
 		<tr>
-			<td>${producto.getId()}</td>>
+			<td>${producto.getId()}</td>
+			<td>${producto.getNombre()}</td>
+			<td>${producto.getDescripcion()}</td>
+			<td>${producto.getPeso()}</td>
+			<td>${producto.getStock()}</td>
+			<td>
+			<form action = "EliminarControllerServlet">
+				<input type="hidden" value="${producto.getId()}">
+				<input type="submit" value="Borrar">
+			</form>
+			</td>
 		</tr>
 	</c:forEach>
 	</table>
+	<br>
+	<a href = "JSP/CrearProducto.jsp">Crear Producto</a>
 </body>
 </html>
