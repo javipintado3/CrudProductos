@@ -35,7 +35,7 @@ public class ListarControllerServlet extends HttpServlet {
 	 RequestDispatcher dispatcher = request.getRequestDispatcher("JSP/ListarProducto.jsp");
 	 dispatcher.forward(request, response);
 		
-		
+
 	}
 
 	

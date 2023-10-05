@@ -59,15 +59,42 @@ public class ConexionBD implements MetodosBD {
 
 	@Override
 	public Boolean updateProducto(Producto producto) {
-		// TODO Auto-generated method stub
-		return null;
+		 
+		try (Connection connection = DriverManager.getConnection(url, usuario, key)) {
+	        	
+	        	String sql = "UPDATE personas SET nombre = ?, descripcion = ?, peso = ?, stock = ? WHERE id = ?";
+	            
+	            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+	                statement.setString(1, producto.getNombre());
+	                statement.setString(2, producto.getDescripcion());
+	                statement.setFloat(3, producto.getPeso());
+	                statement.setInt(4, producto.getStock());
+	                statement.setInt(5, producto.getId());
+	                int rowsUpdated = statement.executeUpdate();
+	                return rowsUpdated > 0;
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return false;
 	}
 
 
 	@Override
 	public boolean deleteProducto(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+		   
+		try (Connection connection = DriverManager.getConnection(url, usuario, key)) {
+			      
+	        	String sql = "DELETE FROM Producto WHERE id = ?";
+	            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+	                statement.setInt(1, id);
+	                int rowsDeleted = statement.executeUpdate();
+	                return rowsDeleted > 0; 
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return false; 
 	}
 
 

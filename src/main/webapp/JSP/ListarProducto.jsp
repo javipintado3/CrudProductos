@@ -19,9 +19,17 @@
 			<td>${producto.getPeso()}</td>
 			<td>${producto.getStock()}</td>
 			<td>
-			<form action = "EliminarControllerServlet">
-				<input type="hidden" value="${producto.getId()}">
+			<form action="EliminarControllerServlet" method="post">
+			
+				<input type="hidden" value="${producto.getId()}" name="id">
 				<input type="submit" value="Borrar">
+			</form>
+			</td>
+			<td>
+			<form action="JSP/Update.jsp" method="post">
+			
+				<input type="hidden" value="${producto.getId()}" name="id">
+				<input type="submit" value="Actualizar">
 			</form>
 			</td>
 		</tr>

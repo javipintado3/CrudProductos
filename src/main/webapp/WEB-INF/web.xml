@@ -10,7 +10,6 @@
     <servlet-name>ListarControllerServlet</servlet-name>
     <url-pattern>/ListarControllerServlet</url-pattern>
   </servlet-mapping>
-  
   <display-name>CrudDeProducto</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -30,7 +29,6 @@
     <servlet-name>CreateControllerServlet</servlet-name>
     <url-pattern>/CreateControllerServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>EliminarControllerServlet</display-name>
@@ -40,5 +38,15 @@
   <servlet-mapping>
     <servlet-name>EliminarControllerServlet</servlet-name>
     <url-pattern>/EliminarControllerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateControllerServlet</display-name>
+    <servlet-name>UpdateControllerServlet</servlet-name>
+    <servlet-class>com.javierpintado.controllerServlet.UpdateControllerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateControllerServlet</servlet-name>
+    <url-pattern>/UpdateControllerServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -31,9 +31,7 @@ public class EliminarControllerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
-		
-		
-		
+		System.out.println(id);
 		try {
 
 			if (ctr.deleteProducto(Integer.parseInt(id))) {
